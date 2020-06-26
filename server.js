@@ -20,7 +20,7 @@ const { v1: uuidv1 } = require('uuid');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-const port = process.env.Port || 5000;
+const port = process.env.PORT || 5000;
 
 /****************************************************
  ********************Serveur Http********************
