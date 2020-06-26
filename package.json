@@ -5,9 +5,10 @@
   "author": "PeronMaxime <38103096+PeronMaxime@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "build": "node build/build.js"
+    "dev": "node build/dev-server.js",
+  "start": "node server.js",
+  "postinstall": "npm run build",
+  "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -24,11 +25,7 @@
     "socket.io": "^2.3.0",
     "uuid": "^8.0.0",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "webpack": "^3.6.0",
-    "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
