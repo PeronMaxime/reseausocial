@@ -124,7 +124,7 @@ app.post('/register', function(req, res){
 
         Pour activer votre compte, veuillez cliquer sur le lien suivant :
 
-        http://localhost:1234/check/${token}
+        https://reseausocialmaxime.herokuapp.com/check/${token}
 
         Cordialement,
 

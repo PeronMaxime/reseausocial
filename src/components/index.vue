@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const socket = io('http://localhost:1234');
+const socket = io('https://reseausocialmaxime.herokuapp.com/');
 
 
 

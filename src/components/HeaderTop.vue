@@ -19,11 +19,15 @@
             <router-link :to="{name: 'messages'}" class="nav-link">Messages</router-link>
           </li>
           <li class="nav-item" v-if="connected">
-            <button @click='disconnect'>Déconnexion</button>
+            <div @click='disconnect' class="nav-link">Déconnexion</div>
           </li>
           <li class="nav-item" v-if="isAdmin">
             <router-link :to="{name: 'admin'}" class="nav-link">Administration</router-link>
           </li>
+          <li class="nav-item">
+            <div @click='actualise' class="nav-link">Actualiser</div>
+          </li>
+
         </ul>
       </div>
 
@@ -35,22 +39,24 @@
 
 <script>
 import session from '../store/SessionStore';
-const socket = io('http://localhost:1234');
+const socket = io('https://reseausocialmaxime.herokuapp.com/');
 export default {
   name: 'HeaderTop',
+
   data(){
     return {
-      profilUrl: 'profil/'+session.state.uuid
+      profilUrl: 'profil/'+session.state.uuid,
+      connected: session.state.connected,
+      isAdmin : session.state.isAdmin
     }
   },
   methods: {
+    actualise : function(){
+      this.connected = session.state.connected;
+      this.isAdmin = session.state.isAdmin;
+    },
     
-    connected: function(){
-      return session.state.connected;
-    },
-    isAdmin: function(){
-      return session.state.isAdmin;
-    },
+    
     disconnect: function(){
       socket.emit('sendUuidDeco', {
         uuid: session.state.uuid
